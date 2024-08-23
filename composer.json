@@ -1,0 +1,16 @@
+{
+    "name": "hasinur/contact",
+    "description": "A contac collection software",
+    "autoload": {
+        "psr-4": {
+            "Hasinur\\Contact\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hasinur Rahman",
+            "email": "hasinurrahman3@gmail.com"
+        }
+    ],
+    "require": {}
+}

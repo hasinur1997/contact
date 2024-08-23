@@ -1,0 +1,11 @@
+{
+  "name": "contact",
+  "version": "1.0.0",
+  "description": "A contact collections software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
