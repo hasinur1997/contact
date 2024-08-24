@@ -4,6 +4,7 @@ namespace Hasinur\Contact;
 use Hasinur\Contact\Core\Interfaces\ProviderInterface;
 use Hasinur\Contact\Api\ApiManager;
 use Hasinur\Contact\Admin\Admin;
+use Hasinur\Contact\Assets\AssetManager;
 
 /**
  * Bootstrap Class
@@ -17,7 +18,8 @@ class Bootstrap {
     protected static $providers = [
         Activate::class,
         ApiManager::class,
-        Admin::class
+        Admin::class,
+        AssetManager::class,
     ];
 
     /**

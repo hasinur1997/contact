@@ -4,8 +4,15 @@
   "description": "A contact collections software",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^28.6.0"
+  },
+  "dependencies": {
+    "@wordpress/element": "^6.6.0"
+  }
 }

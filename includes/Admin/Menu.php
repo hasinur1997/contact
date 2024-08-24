@@ -40,10 +40,8 @@ class Menu implements ServiceInterface {
      * @return  void
      */
     public function menu_page() {
-        ?>
-            <div class="wrap">
-                <h2>Main menu page</h2>
-            </div>
-        <?php 
+        wp_enqueue_script('contact-main');
+        
+        echo '<div id="contact-app"></div>';
     }
 }
