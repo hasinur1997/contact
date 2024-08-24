@@ -22,7 +22,7 @@ class Activate implements ProviderInterface {
      * @return  void
      */
     public function run_actions() {
-        Install::run();
+        Installer::run();
     }
 }
 
