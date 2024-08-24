@@ -127,14 +127,14 @@ class Model implements \ArrayAccess, \IteratorAggregate, \JsonSerializable {
 
         if ( isset( $this->attributes[ $this->primaryKey ] ) ) {
             // Update existing record
-            $id = $wpdb->update( $this->table, $this->attributes, [ 'id' => $this->attributes[$this->primaryKey] ] );
+            $wpdb->update( $this->table, $this->attributes, [ 'id' => $this->attributes[$this->primaryKey] ] );
         } else {
             // Insert new record
-            $id = $wpdb->insert( $this->table, $this->attributes );
+            $wpdb->insert( $this->table, $this->attributes );
         }
 
         if ( ! isset( $this->attributes[$this->primaryKey] ) ) {
-            $this->attributes[$this->primaryKey] = $id;
+            $this->attributes[$this->primaryKey] = $wpdb->insert_id;;
         }
     }
 
