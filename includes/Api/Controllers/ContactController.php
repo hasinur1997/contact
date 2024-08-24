@@ -1,6 +1,7 @@
 <?php
 namespace Hasinur\Contact\Api\Controllers;
 
+use Hasinur\Contact\Models\ContactModel;
 use WP_REST_Request;
 use WP_REST_Server;
 
@@ -40,7 +41,9 @@ class ContactController extends Controller {
      * @return  void
      */
     public function get_items( $request ) {
+        $contacts = ContactModel::all();
         
+        return rest_ensure_response($contacts);
     }
 
     public function get_items_permissions_check( $request ) {

@@ -6,10 +6,12 @@
  */
 namespace Hasinur\Contact\Models;
 
+use ArrayAccess;
+
 /**
  * Model class
  */
-class Model {
+class Model implements \ArrayAccess, \IteratorAggregate, \JsonSerializable {
     /**
      * Store table name
      *
@@ -58,6 +60,34 @@ class Model {
         }
 
         return null;
+    }
+    
+    public function offsetExists(mixed $offset): bool {
+        return isset($this->attributes[$offset]);
+    }
+
+    public function offsetGet(mixed $offset): mixed {
+        return $this->attributes[$offset];
+    }
+
+    public function offsetSet(mixed $offset, mixed $value): void {
+        $this->attributes[$offset] = $value;
+    }
+
+    public function offsetUnset(mixed $offset): void {
+        unset($this->attributes[$offset]);
+    }
+
+    public function getIterator(): \Traversable {
+        return new \ArrayIterator($this->attributes);
+    }
+
+    public function toArray() {
+        return $this->attributes;
+    }
+
+    public function jsonSerialize(): mixed {
+        return $this->toArray();
     }
 
     /**
