@@ -1,7 +1,13 @@
+import {
+    Button,
+    Notice,
+    TabPanel
+} from "@wordpress/components"
+
 const App = () => {
     return (
         <>
-            <h2>App Component</h2>
+         <Button>Click Me!</Button>;   
         </>
     )
 }

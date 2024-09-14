@@ -57,6 +57,13 @@ class ContactController extends Controller {
         ]);
     }
 
+    /**
+     * Get one item from the collection
+     *
+     * @param   WP_Rest_Request  $request  [$request description]
+     *
+     * @return  WP_Rest_Response|WP_Error
+     */
     public function get_item($request) {
         $id =   intval($request['id']);
         $contact = ContactModel::find($id);
@@ -81,6 +88,13 @@ class ContactController extends Controller {
         return rest_ensure_response($contacts);
     }
 
+    /**
+     * Create one item for the collection
+     *
+     * @param   WP_Rest_Request  $request  [$request description]
+     *
+     * @return  WP_REST_Response|WP_Error
+     */
     public function create_item( $request ) {
         $data = $this->prepare_item_for_database( $request );
 
@@ -89,8 +103,15 @@ class ContactController extends Controller {
         return rest_ensure_response($contact);
     }
 
+    /**
+     * Update one item from the collection
+     *
+     * @param   WP_Rest_Request  $request  
+     *
+     * @return  WP_Rest_Response|WP_Error
+     */
     public function update_item($request) {
-        $id =   intval($request['id']);
+        $id      =   intval($request['id']);
         $contact = ContactModel::find($id);
         $data = $this->prepare_item_for_database($request);
 
@@ -103,6 +124,13 @@ class ContactController extends Controller {
         return rest_ensure_response($contact);
     }
 
+    /**
+     * Delete one item from the collection
+     *
+     * @param   WP_Rest_Request  $request
+     *
+     * @return  WP_REST_Response|WP_Error
+     */
     public function delete_item($request) {
         $id =   intval($request['id']);
         $contact = ContactModel::find($id);
@@ -119,6 +147,13 @@ class ContactController extends Controller {
         ];
     }
 
+    /**
+     * Checks if a given request has access to get items.
+     *
+     * @param   WP_Rest_Request  $request  [$request description]
+     *
+     * @return  WP_Rest_Response|WP_Error
+     */
     public function get_items_permissions_check( $request ) {
         return current_user_can('manage_options');
     }
